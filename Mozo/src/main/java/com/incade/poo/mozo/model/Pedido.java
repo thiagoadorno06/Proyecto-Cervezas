@@ -1,9 +1,13 @@
 package com.incade.poo.mozo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,15 +15,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-public class Pedido {
-    
+public class Pedido implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     
-    private Long total;
- 
-    private Long mozo;
-    private Long mesa;
-    private Long estado;
+    private Double total;
+    
+    @ManyToOne
+    private Mesa mesa;
+    
+    @ManyToOne
+    private Mozo mozo;
+    
+    @ManyToOne
+    private Estado estado;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<Item> items;
 }

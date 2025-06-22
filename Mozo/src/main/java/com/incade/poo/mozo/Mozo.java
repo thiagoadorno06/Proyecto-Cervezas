@@ -1,6 +1,6 @@
 package com.incade.poo.mozo;
 
-import com.incade.poo.mozo.repository.PersistenceController;
+import com.incade.poo.mozo.controller.PersistenceController;
 import com.incade.poo.mozo.view.Ventana1;
 
 public class Mozo {
