@@ -38,6 +38,7 @@
         </dependency>
     </dependencies>
     <build>
+        
         <plugins>
         <!-- Plugin de compilación con soporte para Lombok -->
         <plugin>

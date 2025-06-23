@@ -36,9 +36,9 @@ public class Ventana4 extends javax.swing.JFrame {
         jToggleButton8 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jToggleButton13 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jToggleButton13 = new javax.swing.JToggleButton();
         jLabel10 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel11 = new javax.swing.JLabel();
@@ -121,6 +121,12 @@ public class Ventana4 extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(19, 16, 9));
 
+        jLabel2.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Elija la bebida ");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 3.png"))); // NOI18N
+
         jToggleButton13.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jToggleButton13.setText("←");
         jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -129,19 +135,13 @@ public class Ventana4 extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Elija la bebida ");
-
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\Logo Cerveceria 3.png")); // NOI18N
-
         jLabel10.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("que desea consumir");
 
         jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton1.setText("Cerveza 1");
+        jToggleButton1.setText("INFERNO GOLDEN");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -153,15 +153,30 @@ public class Ventana4 extends javax.swing.JFrame {
 
         jToggleButton6.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton6.setText("Cerveza 2");
+        jToggleButton6.setText("FUEGO ROJO");
+        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton6ActionPerformed(evt);
+            }
+        });
 
         jToggleButton9.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton9.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton9.setText("Cerveza 3");
+        jToggleButton9.setText("LLAMA IPA");
+        jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton9ActionPerformed(evt);
+            }
+        });
 
         jToggleButton10.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton10.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton10.setText("Cerveza 4");
+        jToggleButton10.setText("OSCURA DEL INFIERNO");
+        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton10ActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         jLabel12.setText("$1500");
@@ -250,7 +265,7 @@ public class Ventana4 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-           Ventana5 v5 =new Ventana5();
+        Ventana5 v5 = new Ventana5("Inferno Golden");
        v5.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
@@ -259,6 +274,26 @@ public class Ventana4 extends javax.swing.JFrame {
 
        
     }//GEN-LAST:event_jToggleButton13ActionPerformed
+
+    private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
+         Ventana5 v5 = new Ventana5("Oscura del infierno");
+         v5.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jToggleButton10ActionPerformed
+
+    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+         Ventana5 v5 = new Ventana5("Fuego rojo");
+         v5.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jToggleButton6ActionPerformed
+
+    private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
+        
+         Ventana5 v5 = new Ventana5("Llama IPA");
+         v5.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     
 

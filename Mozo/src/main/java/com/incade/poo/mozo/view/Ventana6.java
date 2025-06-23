@@ -80,7 +80,7 @@ public class Ventana6 extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Enviado Exitosamente");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\Logo Cerveceria 3.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 3.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

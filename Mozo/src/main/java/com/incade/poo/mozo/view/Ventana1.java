@@ -29,13 +29,13 @@ public class Ventana1 extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        btnMozo = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(19, 16, 9));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\Logo Cerveceria 3.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 3.png"))); // NOI18N
 
         jToggleButton1.setBackground(new java.awt.Color(239, 112, 28));
         jToggleButton1.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
@@ -48,14 +48,19 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton2.setBackground(new java.awt.Color(239, 112, 28));
-        jToggleButton2.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setText("MOZO");
-        jToggleButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnMozo.setBackground(new java.awt.Color(239, 112, 28));
+        btnMozo.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        btnMozo.setForeground(new java.awt.Color(255, 255, 255));
+        btnMozo.setText("MOZO");
+        btnMozo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMozo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMozoMouseClicked(evt);
+            }
+        });
+        btnMozo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                btnMozoActionPerformed(evt);
             }
         });
 
@@ -68,7 +73,7 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMozo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -78,7 +83,7 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addGap(120, 120, 120)
                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnMozo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,7 +100,7 @@ public class Ventana1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void btnMozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMozoActionPerformed
         
         Ventana9 v9 =new Ventana9();
        
@@ -103,7 +108,7 @@ public class Ventana1 extends javax.swing.JFrame {
        this.setVisible(false); 
 
         
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }//GEN-LAST:event_btnMozoActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
        
@@ -114,10 +119,14 @@ public class Ventana1 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void btnMozoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMozoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMozoMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnMozo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 }
