@@ -14,6 +14,7 @@ import com.incade.poo.mozo.model.Pedido;
 import com.incade.poo.mozo.repository.exceptions.NonexistentEntityException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -186,6 +187,19 @@ public class MozoJpaController implements Serializable {
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public Mozo findMozoByEmail(String email) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT m FROM mozo m WHERE m.email = :email");
+            query.setParameter("email", email);
+            return (Mozo) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null; // No cerveza found with that name
         } finally {
             em.close();
         }

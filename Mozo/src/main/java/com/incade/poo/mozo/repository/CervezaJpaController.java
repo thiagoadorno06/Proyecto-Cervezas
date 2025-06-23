@@ -11,6 +11,7 @@ import jakarta.persistence.EntityManagerFactory;
 import java.io.Serializable;
 import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -134,6 +135,32 @@ public class CervezaJpaController implements Serializable {
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public Cerveza findCervezaByName(String nombre) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT c FROM cerveza c WHERE c.nombre = :nombre");
+            query.setParameter("nombre", nombre);
+            return (Cerveza) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null; // No cerveza found with that name
+        } finally {
+            em.close();
+        }
+    }
+
+    public Boolean destroyByName(String nombre) {
+    EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("DELETE FROM cerveza c WHERE c.nombre = :nombre");
+            query.setParameter("nombre", nombre);
+            return true;
+        } catch (NoResultException e) {
+            return false;
         } finally {
             em.close();
         }

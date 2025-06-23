@@ -11,6 +11,7 @@ import jakarta.persistence.EntityManagerFactory;
 import java.io.Serializable;
 import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -139,4 +140,29 @@ public class EstadoJpaController implements Serializable {
         }
     }
     
+    public Boolean destroyByName(String nombre) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("DELETE FROM estado e WHERE e.nombre = :nombre");
+            query.setParameter("nombre", nombre);
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        } finally {
+            em.close();
+        }
+    }
+
+    public Estado findEstadoByName(String nombre) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT e FROM estado e WHERE e.nombre = :nombre");
+            query.setParameter("nombre", nombre);
+            return (Estado) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null; // No cerveza found with that name
+        } finally {
+            em.close();
+        }
+    }
 }

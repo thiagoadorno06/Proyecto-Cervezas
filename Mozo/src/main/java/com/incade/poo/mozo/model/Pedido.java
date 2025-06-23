@@ -19,7 +19,6 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    
     private Double total;
     
     @ManyToOne

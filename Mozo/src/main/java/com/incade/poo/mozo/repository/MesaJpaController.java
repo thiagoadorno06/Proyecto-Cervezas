@@ -11,6 +11,7 @@ import jakarta.persistence.EntityManagerFactory;
 import java.io.Serializable;
 import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -121,6 +122,19 @@ public class MesaJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             return em.find(Mesa.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
+    public Mesa findMesaByNumero(Long numero) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT m FROM mesa m WHERE m.numero = :numero");
+            query.setParameter("numero", numero);
+            return (Mesa) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null; // No cerveza found with that name
         } finally {
             em.close();
         }
