@@ -4,10 +4,7 @@
  */
 package com.incade.poo.mozo.view;
 
-import com.incade.poo.mozo.controller.CervezaController;
-import com.incade.poo.mozo.dto.CervezaDto;
-import com.incade.poo.mozo.model.Cerveza;
-import java.util.List;
+
 
 /**
  *
@@ -19,7 +16,7 @@ public class Ventana9 extends javax.swing.JFrame {
     /**
      * Creates new form Ventana9
      */
-    CervezaController cervezaController = new CervezaController();
+   
     
     public Ventana9() {
         initComponents();
@@ -172,8 +169,7 @@ public class Ventana9 extends javax.swing.JFrame {
          v10.setVisible(true);
         this.setVisible(false);
        
-       List<CervezaDto> cervezas = cervezaController.getAll();
-       System.out.print(cervezas.toString());
+      
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void btnVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolver1ActionPerformed

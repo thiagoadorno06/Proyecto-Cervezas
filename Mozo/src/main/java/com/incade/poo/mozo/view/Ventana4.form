@@ -179,10 +179,10 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jToggleButton6" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                              <Component id="jToggleButton9" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                              <Component id="jToggleButton10" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                              <Component id="jToggleButton1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="btnFuego" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="btnLlama" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="btnOscura" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="btnInferno" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -210,22 +210,22 @@
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel13" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jToggleButton1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="btnInferno" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel14" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jToggleButton6" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="btnFuego" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel12" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jToggleButton9" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="btnLlama" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel11" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jToggleButton10" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="btnOscura" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="btnVolver" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
@@ -258,7 +258,7 @@
             <Property name="text" type="java.lang.String" value="que desea consumir"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+        <Component class="javax.swing.JToggleButton" name="btnInferno">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -269,7 +269,7 @@
             <Property name="text" type="java.lang.String" value="INFERNO GOLDEN"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInfernoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -287,7 +287,7 @@
             <Property name="text" type="java.lang.String" value="$1500"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton6">
+        <Component class="javax.swing.JToggleButton" name="btnFuego">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -298,10 +298,10 @@
             <Property name="text" type="java.lang.String" value="FUEGO ROJO"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFuegoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton9">
+        <Component class="javax.swing.JToggleButton" name="btnLlama">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -312,10 +312,10 @@
             <Property name="text" type="java.lang.String" value="LLAMA IPA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton9ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLlamaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton10">
+        <Component class="javax.swing.JToggleButton" name="btnOscura">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -326,7 +326,7 @@
             <Property name="text" type="java.lang.String" value="OSCURA DEL INFIERNO"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton10ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOscuraActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">

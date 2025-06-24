@@ -4,6 +4,10 @@
  */
 package com.incade.poo.mozo.view;
 
+import com.incade.poo.mozo.controller.PedidoController;
+import com.incade.poo.mozo.dto.CervezaDto;
+import com.incade.poo.mozo.dto.PedidoDto;
+
 /**
  *
  * @author pc
@@ -12,32 +16,18 @@ public class Ventana5 extends javax.swing.JFrame {
 
    private Ventana4 v4;
    private Ventana2 v2;
+   private CervezaDto cerveza;
+   private PedidoController pedidoController = new PedidoController();
     /**
      * Creates new form Ventana5
      */
-    public Ventana5(String cerveza){
+    public Ventana5(CervezaDto cerveza){
         initComponents();
          setLocationRelativeTo(null);
+         this.cerveza = cerveza;
          
-          switch (cerveza) {
-            case "Inferno Golden":
-                txtTitulo.setText("Inferno Golden");
-                txtDescripcion.setText("Cerveza rubia dorada de cuerpo ligero y sabor refrescante, con suaves notas cítricas y un toque de miel. Ideal para quienes buscan una cerveza fácil de tomar sin perder carácter.");
-                break;
-           case "Fuego rojo":
-                 txtTitulo.setText("Fuego rojo");
-                txtDescripcion.setText("Cerveza roja estilo Irish Red Ale, de cuerpo medio y sabor maltoso, con toques de caramelo tostado y un final suavemente amargo. Perfecta para acompañar comidas intensas.");
-                break;
-            case "Llama IPA":
-                 txtTitulo.setText("Llama IPA");
-                txtDescripcion.setText("Cerveza tipo India Pale Ale con 55 IBU, color ámbar profundo y fuerte presencia de lúpulo. Aromas a pino y frutas tropicales, con un final seco y amargo. Para los fanáticos del lúpulo.");
-                break;
-            case "Oscura del infierno":
-                 txtTitulo.setText("Oscura del infierno");
-                txtDescripcion.setText("Stout artesanal de cuerpo denso y color negro intenso. Sabor tostado con notas de café, cacao amargo y un leve dulzor final. Ideal para noches frías o paladares audaces.");
-                break;      
-           
-        }
+        txtDescripcion.setText(cerveza.descripcion());
+        
     }
 
          
@@ -56,7 +46,7 @@ public class Ventana5 extends javax.swing.JFrame {
         txtCantidad = new javax.swing.JTextField();
         RestarCantidad = new javax.swing.JToggleButton();
         SumarCantidad = new javax.swing.JToggleButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnPedido = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -95,14 +85,14 @@ public class Ventana5 extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton1.setBackground(new java.awt.Color(239, 112, 28));
-        jToggleButton1.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Realizar Pedido");
-        jToggleButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPedido.setBackground(new java.awt.Color(239, 112, 28));
+        btnPedido.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        btnPedido.setForeground(new java.awt.Color(255, 255, 255));
+        btnPedido.setText("Realizar Pedido");
+        btnPedido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnPedidoActionPerformed(evt);
             }
         });
 
@@ -165,7 +155,7 @@ public class Ventana5 extends javax.swing.JFrame {
                         .addComponent(txtTitulo)
                         .addGap(139, 139, 139))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,7 +187,7 @@ public class Ventana5 extends javax.swing.JFrame {
                     .addComponent(SumarCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RestarCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
 
@@ -226,14 +216,17 @@ public class Ventana5 extends javax.swing.JFrame {
         this.v2 = v2;
     }
     
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
 
+        
+        pedidoController.create(1L,"Inferno Golden", 1);
+            
         Ventana6 v6 =new Ventana6();
         v6.setVisible(true);
         this.setVisible(false);
         v6.setv2(v2);
 
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_btnPedidoActionPerformed
 
     private void SumarCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SumarCantidadActionPerformed
 
@@ -269,13 +262,13 @@ public class Ventana5 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton RestarCantidad;
     private javax.swing.JToggleButton SumarCantidad;
+    private javax.swing.JToggleButton btnPedido;
     private javax.swing.JToggleButton btnVolver1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JLabel txtTitulo;

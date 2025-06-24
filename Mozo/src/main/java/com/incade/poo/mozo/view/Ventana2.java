@@ -413,7 +413,7 @@ public class Ventana2 extends javax.swing.JFrame {
         Ventana3 v3 = new Ventana3();
         v3.setv2(this);
         v3.setVisible(true);
-        this.setVisible(false); // Oculta Ventana1
+        this.setVisible(false); 
         
     }//GEN-LAST:event_btnMenuActionPerformed
 

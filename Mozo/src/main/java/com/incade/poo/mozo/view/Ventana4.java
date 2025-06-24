@@ -4,6 +4,9 @@
  */
 package com.incade.poo.mozo.view;
 
+import com.incade.poo.mozo.controller.CervezaController;
+import com.incade.poo.mozo.dto.CervezaDto;
+import java.util.List;
 /**
  *
  * @author pc
@@ -12,13 +15,40 @@ public class Ventana4 extends javax.swing.JFrame {
 
     private Ventana3 v3;
     private Ventana2 v2;
+    private List<CervezaDto> cervezas;
+    private CervezaController cervezaController = new CervezaController();
     /**
      * Creates new form Ventana4
      */
     public Ventana4() {
         initComponents();
         setLocationRelativeTo(null);
+        cervezas = cervezaController.getAll();
+        cargarCervezasDesdeBD();
     }
+    private void cargarCervezasDesdeBD() {
+    if (cervezas.size() >= 1) {
+        btnInferno.setText(cervezas.get(0).nombre());
+        jLabel13.setText("$" + cervezas.get(0).precio());
+    }
+    if (cervezas.size() >= 2) {
+        btnFuego.setText(cervezas.get(1).nombre());
+        jLabel14.setText("$" + cervezas.get(1).precio());
+    }
+    if (cervezas.size() >= 3) {
+        btnLlama.setText(cervezas.get(2).nombre());
+        jLabel12.setText("$" + cervezas.get(2).precio());
+    }
+    if (cervezas.size() >= 4) {
+        btnOscura.setText(cervezas.get(3).nombre());
+        jLabel11.setText("$" + cervezas.get(3).precio());
+    }
+}
+    
+
+    
+   
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,12 +70,12 @@ public class Ventana4 extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnInferno = new javax.swing.JToggleButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
-        jToggleButton10 = new javax.swing.JToggleButton();
+        btnFuego = new javax.swing.JToggleButton();
+        btnLlama = new javax.swing.JToggleButton();
+        btnOscura = new javax.swing.JToggleButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -131,12 +161,12 @@ public class Ventana4 extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("que desea consumir");
 
-        jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton1.setText("INFERNO GOLDEN");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInferno.setBackground(new java.awt.Color(255, 255, 255));
+        btnInferno.setForeground(new java.awt.Color(0, 0, 0));
+        btnInferno.setText("INFERNO GOLDEN");
+        btnInferno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnInfernoActionPerformed(evt);
             }
         });
 
@@ -145,30 +175,30 @@ public class Ventana4 extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         jLabel11.setText("$1500");
 
-        jToggleButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jToggleButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton6.setText("FUEGO ROJO");
-        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnFuego.setBackground(new java.awt.Color(255, 255, 255));
+        btnFuego.setForeground(new java.awt.Color(0, 0, 0));
+        btnFuego.setText("FUEGO ROJO");
+        btnFuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton6ActionPerformed(evt);
+                btnFuegoActionPerformed(evt);
             }
         });
 
-        jToggleButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jToggleButton9.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton9.setText("LLAMA IPA");
-        jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnLlama.setBackground(new java.awt.Color(255, 255, 255));
+        btnLlama.setForeground(new java.awt.Color(0, 0, 0));
+        btnLlama.setText("LLAMA IPA");
+        btnLlama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton9ActionPerformed(evt);
+                btnLlamaActionPerformed(evt);
             }
         });
 
-        jToggleButton10.setBackground(new java.awt.Color(255, 255, 255));
-        jToggleButton10.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton10.setText("OSCURA DEL INFIERNO");
-        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnOscura.setBackground(new java.awt.Color(255, 255, 255));
+        btnOscura.setForeground(new java.awt.Color(0, 0, 0));
+        btnOscura.setText("OSCURA DEL INFIERNO");
+        btnOscura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton10ActionPerformed(evt);
+                btnOscuraActionPerformed(evt);
             }
         });
 
@@ -209,17 +239,17 @@ public class Ventana4 extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnFuego, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLlama, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnOscura, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInferno, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,19 +264,19 @@ public class Ventana4 extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnInferno, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnFuego, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnLlama, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnOscura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -255,7 +285,7 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,39 +305,48 @@ public class Ventana4 extends javax.swing.JFrame {
         this.v2 = v2;
     }
     
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        Ventana5 v5 = new Ventana5("Inferno Golden");
-      v5.setv4(this); 
+    private void btnInfernoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfernoActionPerformed
+       
+     CervezaDto seleccionada = cervezas.get(0); 
+      Ventana5 v5 = new Ventana5(seleccionada); 
+  
+         v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
         v5.setv2(v2);
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_btnInfernoActionPerformed
 
-    private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
-         Ventana5 v5 = new Ventana5("Oscura del infierno");
-        v5.setv4(this); 
-         v5.setVisible(true);
-        this.setVisible(false);
-        v5.setv2(v2);
-    }//GEN-LAST:event_jToggleButton10ActionPerformed
-
-    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
-         Ventana5 v5 = new Ventana5("Fuego rojo");
-        v5.setv4(this); 
-         v5.setVisible(true);
-        this.setVisible(false);
-        v5.setv2(v2);
-    }//GEN-LAST:event_jToggleButton6ActionPerformed
-
-    private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
+    private void btnOscuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOscuraActionPerformed
         
-         Ventana5 v5 = new Ventana5("Llama IPA");
+       CervezaDto seleccionada = cervezas.get(1);
+       Ventana5 v5 = new Ventana5(seleccionada); 
+        v5.setv4(this); 
+         v5.setVisible(true);
+        this.setVisible(false);
+        v5.setv2(v2);
+    }//GEN-LAST:event_btnOscuraActionPerformed
+
+    private void btnFuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuegoActionPerformed
+         
+        CervezaDto seleccionada = cervezas.get(2);
+        Ventana5 v5 = new Ventana5(seleccionada); 
+        
+        v5.setv4(this); 
+         v5.setVisible(true);
+        this.setVisible(false);
+        v5.setv2(v2);
+    }//GEN-LAST:event_btnFuegoActionPerformed
+
+    private void btnLlamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlamaActionPerformed
+        
+      CervezaDto seleccionada = cervezas.get(3);
+       Ventana5 v5 = new Ventana5(seleccionada); 
          v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
         v5.setv2(v2);
         
-    }//GEN-LAST:event_jToggleButton9ActionPerformed
+    }//GEN-LAST:event_btnLlamaActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
@@ -318,6 +357,10 @@ public class Ventana4 extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnFuego;
+    private javax.swing.JToggleButton btnInferno;
+    private javax.swing.JToggleButton btnLlama;
+    private javax.swing.JToggleButton btnOscura;
     private javax.swing.JToggleButton btnVolver;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -333,11 +376,9 @@ public class Ventana4 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
     // End of variables declaration//GEN-END:variables
+
+    
 }

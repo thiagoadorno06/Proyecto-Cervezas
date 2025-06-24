@@ -4,6 +4,11 @@
  */
 package com.incade.poo.mozo.view;
 
+import com.incade.poo.mozo.controller.CervezaController;
+import com.incade.poo.mozo.controller.MesaController;
+import com.incade.poo.mozo.dto.CervezaDto;
+import com.incade.poo.mozo.dto.MesaDto;
+
 /**
  *
  * @author pc
@@ -19,7 +24,7 @@ public class Ventana3 extends javax.swing.JFrame {
         initComponents();
          setLocationRelativeTo(null);
     }
-
+   private MesaController mesaController = new MesaController();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,8 +43,8 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        numMesa = new javax.swing.JComboBox<>();
+        btnConfirmar = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -57,28 +62,28 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Elegir mesa:");
 
-        jComboBox1.setBackground(new java.awt.Color(239, 112, 28));
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4" }));
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        numMesa.setBackground(new java.awt.Color(239, 112, 28));
+        numMesa.setForeground(new java.awt.Color(255, 255, 255));
+        numMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4" }));
+        numMesa.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                numMesaItemStateChanged(evt);
             }
         });
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        numMesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                numMesaActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setBackground(new java.awt.Color(239, 112, 28));
-        jToggleButton1.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("CONFIRMAR");
-        jToggleButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirmar.setBackground(new java.awt.Color(239, 112, 28));
+        btnConfirmar.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfirmar.setText("CONFIRMAR");
+        btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnConfirmarActionPerformed(evt);
             }
         });
 
@@ -113,7 +118,7 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(106, 106, 106))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +129,7 @@ public class Ventana3 extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(numMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel5)))
@@ -142,10 +147,10 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numMesa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(61, 61, 61)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,23 +171,34 @@ public class Ventana3 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void numMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numMesaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_numMesaActionPerformed
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    private void numMesaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_numMesaItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_numMesaItemStateChanged
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-      Ventana4 v4 = new Ventana4();
-      v4.setv3(this); 
-      v4.setVisible(true);
-      this.setVisible(false);
-      v4.setv2(v2);
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+      
+              
+       String mesa = (String) numMesa.getSelectedItem();
+         Long numeroMesa = Long.valueOf(mesa.trim());
+        MesaController mesaController = new MesaController();
+        MesaDto nuevaMesa = mesaController.create(numeroMesa);
+       
+        Ventana4 v4 = new Ventana4();
+        CervezaController cervezaController = new CervezaController();
+        
+         
+        
+        v4.setv3(this); 
+        v4.setVisible(true);  
+        this.setVisible(false);
+        v4.setv2(v2);
       
       
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
@@ -193,14 +209,14 @@ public class Ventana3 extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnConfirmar;
     private javax.swing.JToggleButton btnVolver;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JComboBox<String> numMesa;
     // End of variables declaration//GEN-END:variables
 }
