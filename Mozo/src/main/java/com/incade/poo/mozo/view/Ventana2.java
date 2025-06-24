@@ -4,6 +4,10 @@
  */
 package com.incade.poo.mozo.view;
 
+//import com.incade.poo.mozo.controller.CervezaController;
+//import com.incade.poo.mozo.dto.CervezaDto;
+//import java.util.List;
+
 
 
 /**
@@ -12,12 +16,21 @@ package com.incade.poo.mozo.view;
  */
 public class Ventana2 extends javax.swing.JFrame {
 
-     private Ventana1 v1;
-    
+   private Ventana1 v1;
+   
+    /**
+     * Creates new form Ventana3
+     */
     public Ventana2() {
         initComponents();
-        setLocationRelativeTo(null);
+         setLocationRelativeTo(null);
     }
+           
+
+     
+    //private CervezaController cervezaController = new CervezaController();
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,10 +39,9 @@ public class Ventana2 extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-    public void setv1(Ventana1 v1)  {
-        
-        this.v1 = v1;
-    }
+  public void setV1(Ventana1 v1){
+      this.v1 = v1;
+  }
     
     
     
@@ -56,7 +68,7 @@ public class Ventana2 extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         btnMenu = new javax.swing.JToggleButton();
-        jToggleButton13 = new javax.swing.JToggleButton();
+        btnVolver = new javax.swing.JToggleButton();
         jToggleButton12 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -271,13 +283,13 @@ public class Ventana2 extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton13.setBackground(new java.awt.Color(239, 112, 28));
-        jToggleButton13.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        jToggleButton13.setText("←");
-        jToggleButton13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setBackground(new java.awt.Color(239, 112, 28));
+        btnVolver.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        btnVolver.setText("←");
+        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton13ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -293,7 +305,7 @@ public class Ventana2 extends javax.swing.JFrame {
         });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 3.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 4.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -308,25 +320,23 @@ public class Ventana2 extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel2)
+                .addGap(90, 90, 90)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jLabel3))
+                    .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel4))
-                    .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel4)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2)
-            .addComponent(jToggleButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel3)
@@ -335,7 +345,15 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addGap(81, 81, 81)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jToggleButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jToggleButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -376,36 +394,43 @@ public class Ventana2 extends javax.swing.JFrame {
 
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton12ActionPerformed
        
-        Ventana7 v7 =new Ventana7();
-       v7.setVisible(true);
-       this.setVisible(false);
-        
+       
+        Ventana7 v7 = new Ventana7();
+        v7.setv2(this);
+        v7.setVisible(true);
+        this.setVisible(false); 
         
     }//GEN-LAST:event_jToggleButton12ActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+      //List<CervezaDto> cervezas = cervezaController.getAll();
       
-      Ventana3 v3 = new Ventana3();
-      v3.setv2(this); // Le pasás la referencia a Ventana1
-      v3.setVisible(true);
-      this.setVisible(false); // Ocultás Ventana1 (opcional)
+      //ervezaDto cerveza = cervezas.getFirst();
+      
+      //cerveza.precio();
+      
+        
+        Ventana3 v3 = new Ventana3();
+        v3.setv2(this);
+        v3.setVisible(true);
+        this.setVisible(false); // Oculta Ventana1
         
     }//GEN-LAST:event_btnMenuActionPerformed
 
-    private void jToggleButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton13ActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
      
        
         v1.setVisible(true);
-    
         this.setVisible(false);
         
         
-    }//GEN-LAST:event_jToggleButton13ActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnMenu;
+    private javax.swing.JToggleButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -421,7 +446,6 @@ public class Ventana2 extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton12;
-    private javax.swing.JToggleButton jToggleButton13;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;

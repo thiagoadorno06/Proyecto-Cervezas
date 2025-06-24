@@ -102,20 +102,20 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void btnMozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMozoActionPerformed
         
-        Ventana9 v9 =new Ventana9();
-       
-       v9.setVisible(true);
-       this.setVisible(false); 
-
-        
+        Ventana9 v9 = new Ventana9();
+        v9.setv1(this);
+        v9.setVisible(true);
+        this.setVisible(false); // Oculta Ventana1
+ 
+  
     }//GEN-LAST:event_btnMozoActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
        
         Ventana2 v2 = new Ventana2();
-      v2.setv1(this); 
-      v2.setVisible(true);
-      this.setVisible(false);
+        v2.setV1(this);
+        v2.setVisible(true);
+        this.setVisible(false); // Oculta Ventana1
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
