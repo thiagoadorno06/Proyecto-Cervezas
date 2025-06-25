@@ -15,38 +15,66 @@ public class ElejirCerveza extends javax.swing.JFrame {
     private List<CervezaDto> cervezas;
     private CervezaController cervezaController = new CervezaController();
     private Integer numeroMesa; 
+    private int paginaActual = 0;
+    private int  CervezasporPagina;
+    
     /**
      * Creates new form Ventana4
      */
     public ElejirCerveza(Integer numeroMesa) {
         initComponents();
+        this.CervezasporPagina = 4;
         setLocationRelativeTo(null);
         cervezas = cervezaController.getAll();
         cargarCervezasDesdeBD();
         this.numeroMesa = numeroMesa;
     }
     private void cargarCervezasDesdeBD() {
-    if (cervezas.size() >= 1) {
-        btnInferno.setText(cervezas.get(0).nombre());
-        jLabel13.setText("$" + cervezas.get(0).precio());
-    }
-    if (cervezas.size() >= 2) {
-        btnOscura.setText(cervezas.get(1).nombre());
-        jLabel14.setText("$" + cervezas.get(1).precio());
-    }
-    if (cervezas.size() >= 3) {
-        btnFuego.setText(cervezas.get(2).nombre());
-        jLabel12.setText("$" + cervezas.get(2).precio());
-    }
-    if (cervezas.size() >= 4) {
-        btnLlama.setText(cervezas.get(3).nombre());
-        jLabel11.setText("$" + cervezas.get(3).precio());
-    }
-}
-    
+        int inicio = paginaActual * CervezasporPagina;
+        int fin = Math.min(inicio + CervezasporPagina, cervezas.size());
+        limpiarBotones();
 
+        
+    if (inicio < fin) {
+         if (inicio < cervezas.size()) {
+            btnInferno.setText(cervezas.get(inicio).nombre());
+            jLabel13.setText("$" + cervezas.get(inicio).precio());
+            btnInferno.setVisible(true);
+            jLabel13.setVisible(true);
+    }
+    if (inicio + 1 < cervezas.size()) {
+       btnOscura.setText(cervezas.get(inicio + 1).nombre());
+            jLabel14.setText("$" + cervezas.get(inicio + 1).precio());
+            btnOscura.setVisible(true);
+            jLabel14.setVisible(true);
+    }
+    if (inicio + 2 < cervezas.size()) {
     
-   
+       btnFuego.setText(cervezas.get(inicio + 2).nombre());
+            jLabel12.setText("$" + cervezas.get(inicio + 2).precio());
+            btnFuego.setVisible(true);
+            jLabel12.setVisible(true);
+    }
+    if (inicio + 3 < cervezas.size()) {     
+         btnLlama.setText(cervezas.get(inicio + 3).nombre());
+            jLabel11.setText("$" + cervezas.get(inicio + 3).precio());
+            btnLlama.setVisible(true);
+            jLabel11.setVisible(true);
+    }
+ }
+    txtIndice.setText( (paginaActual + 1) + " /" + (int) Math.ceil((double) cervezas.size() / CervezasporPagina));
+}
+    private void limpiarBotones(){
+       
+    btnInferno.setVisible(false);
+        jLabel13.setVisible(false);
+        btnOscura.setVisible(false);
+        jLabel14.setVisible(false);
+        btnFuego.setVisible(false);
+        jLabel12.setVisible(false);
+        btnLlama.setVisible(false);
+        jLabel11.setVisible(false);
+    }
 
 
     /**
@@ -79,6 +107,9 @@ public class ElejirCerveza extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JToggleButton();
+        btnPaginaAnterior = new javax.swing.JButton();
+        btnPaginaSiguiente = new javax.swing.JButton();
+        txtIndice = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -224,6 +255,30 @@ public class ElejirCerveza extends javax.swing.JFrame {
             }
         });
 
+        btnPaginaAnterior.setBackground(new java.awt.Color(238, 112, 28));
+        btnPaginaAnterior.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnPaginaAnterior.setForeground(new java.awt.Color(255, 255, 255));
+        btnPaginaAnterior.setText("←");
+        btnPaginaAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPaginaAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPaginaAnteriorActionPerformed(evt);
+            }
+        });
+
+        btnPaginaSiguiente.setBackground(new java.awt.Color(238, 112, 28));
+        btnPaginaSiguiente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnPaginaSiguiente.setForeground(new java.awt.Color(255, 255, 255));
+        btnPaginaSiguiente.setText("→");
+        btnPaginaSiguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPaginaSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPaginaSiguienteActionPerformed(evt);
+            }
+        });
+
+        txtIndice.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -251,7 +306,13 @@ public class ElejirCerveza extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPaginaSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btnPaginaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(txtIndice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -275,15 +336,20 @@ public class ElejirCerveza extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOscura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFuego, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(23, 23, 23)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFuego, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLlama, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPaginaSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(txtIndice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPaginaAnterior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,44 +378,61 @@ public class ElejirCerveza extends javax.swing.JFrame {
     
     private void btnInfernoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfernoActionPerformed
        
-     CervezaDto seleccionada = cervezas.get(0); 
+     int index = paginaActual * CervezasporPagina + 0;
+        if (index < cervezas.size()) {
+        
+        CervezaDto seleccionada = cervezas.get(index); 
       ElejirCantidad v5 = new ElejirCantidad(seleccionada,numeroMesa); 
   
          v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
         v5.setv2(v2);
+        }
     }//GEN-LAST:event_btnInfernoActionPerformed
 
     private void btnOscuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOscuraActionPerformed
         
-       CervezaDto seleccionada = cervezas.get(1);
+        int index = paginaActual * CervezasporPagina + 1;
+        if (index < cervezas.size()) {
+        
+        
+       CervezaDto seleccionada = cervezas.get(index);
        ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
         v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
         v5.setv2(v2);
+        }
     }//GEN-LAST:event_btnOscuraActionPerformed
 
     private void btnFuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuegoActionPerformed
          
-        CervezaDto seleccionada = cervezas.get(2);
+        int index = paginaActual * CervezasporPagina + 2;
+        if (index < cervezas.size()) {
+        
+        CervezaDto seleccionada = cervezas.get(index);
         ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
         
         v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
         v5.setv2(v2);
+        }
     }//GEN-LAST:event_btnFuegoActionPerformed
 
     private void btnLlamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlamaActionPerformed
         
-      CervezaDto seleccionada = cervezas.get(3);
+        int index = paginaActual * CervezasporPagina + 3;
+        if (index < cervezas.size()) {
+        
+      CervezaDto seleccionada = cervezas.get(index);
        ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
          v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
         v5.setv2(v2);
+        }
         
         
     }//GEN-LAST:event_btnLlamaActionPerformed
@@ -360,6 +443,25 @@ public class ElejirCerveza extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnPaginaSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaSiguienteActionPerformed
+         int totalPaginas = (int) Math.ceil((double) cervezas.size() / CervezasporPagina);
+        if (paginaActual < totalPaginas - 1) {
+            paginaActual++;
+            cargarCervezasDesdeBD();
+        
+       }   
+    }//GEN-LAST:event_btnPaginaSiguienteActionPerformed
+
+    private void btnPaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaAnteriorActionPerformed
+    
+         if (paginaActual > 0) {
+            paginaActual--;
+            cargarCervezasDesdeBD();
+        }
+    
+        
+    }//GEN-LAST:event_btnPaginaAnteriorActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -367,6 +469,8 @@ public class ElejirCerveza extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnInferno;
     private javax.swing.JToggleButton btnLlama;
     private javax.swing.JToggleButton btnOscura;
+    private javax.swing.JButton btnPaginaAnterior;
+    private javax.swing.JButton btnPaginaSiguiente;
     private javax.swing.JToggleButton btnVolver;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -384,6 +488,7 @@ public class ElejirCerveza extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
+    private javax.swing.JTextField txtIndice;
     // End of variables declaration//GEN-END:variables
 
     

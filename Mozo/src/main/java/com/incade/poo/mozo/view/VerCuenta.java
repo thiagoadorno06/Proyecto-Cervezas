@@ -141,7 +141,11 @@ private void cargarDatosPedido(PedidoDto pedido) {
         txtTotal.setForeground(new java.awt.Color(255, 255, 255));
         txtTotal.setText("jLabel7");
 
-        btnActulizar.setText("Actualizar");
+        btnActulizar.setBackground(new java.awt.Color(238, 112, 28));
+        btnActulizar.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        btnActulizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActulizar.setText("ACTUALIZAR");
+        btnActulizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnActulizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActulizarActionPerformed(evt);

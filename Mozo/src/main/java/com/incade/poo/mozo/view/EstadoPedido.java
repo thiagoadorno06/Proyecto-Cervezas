@@ -78,8 +78,12 @@ public void setPedido(PedidoDto pedido) {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Estado:");
 
+        txtMesa.setFont(new java.awt.Font("Roboto Cn", 0, 18)); // NOI18N
+        txtMesa.setForeground(new java.awt.Color(255, 255, 255));
         txtMesa.setText("jLabel2");
 
+        txtCerveza.setFont(new java.awt.Font("Roboto Cn", 0, 18)); // NOI18N
+        txtCerveza.setForeground(new java.awt.Color(255, 255, 255));
         txtCerveza.setText("jLabel6");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -96,7 +100,7 @@ public void setPedido(PedidoDto pedido) {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCerveza))
+                        .addComponent(txtCerveza, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -132,7 +136,11 @@ public void setPedido(PedidoDto pedido) {
             }
         });
 
+        btnActualizar.setBackground(new java.awt.Color(238, 112, 28));
+        btnActualizar.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);

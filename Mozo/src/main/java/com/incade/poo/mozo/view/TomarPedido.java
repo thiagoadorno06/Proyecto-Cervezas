@@ -3,6 +3,7 @@ package com.incade.poo.mozo.view;
 
 import com.incade.poo.mozo.controller.PedidoController;
 import com.incade.poo.mozo.dto.PedidoDto;
+import java.util.List;
 
 /**
  *
@@ -11,6 +12,8 @@ import com.incade.poo.mozo.dto.PedidoDto;
 public class TomarPedido extends javax.swing.JFrame {
     private LoginMozo v9;
     private PedidoDto pedido;
+    private List<PedidoDto> pedidos;
+    private int indiceActual = 0;
   
     /**
      * Creates new form Ventana10
@@ -18,12 +21,28 @@ public class TomarPedido extends javax.swing.JFrame {
     public TomarPedido(PedidoDto pedido) {
         initComponents();
         setLocationRelativeTo(null);
-        this.pedido = pedido;
-        
-        txtMesa.setText(pedido.mesa().toString());
-        txtCerveza.setText(pedido.items().get(0).cerveza().nombre());
-        txtCantidad.setText(String.valueOf(pedido.items().get(0).cantidad()));
-    }
+       PedidoController pedidoController = new PedidoController();
+       this.pedidos = pedidoController.getAll();
+       if (!pedidos.isEmpty()) {
+        indiceActual = 0;
+        mostrarPedidoActual();
+    } else {
+        txtMesa.setText("-");
+        txtCerveza.setText("-");
+        txtCantidad.setText("-");
+        txtTomarPedido.setEnabled(false);
+    } 
+   }     
+       
+    private void mostrarPedidoActual() {
+    if (pedidos == null || pedidos.isEmpty()) return;
+
+    pedido = pedidos.get(indiceActual);
+    txtMesa.setText(pedido.mesa().toString());
+    txtCerveza.setText(pedido.items().get(0).cerveza().nombre());
+    txtCantidad.setText(String.valueOf(pedido.items().get(0).cantidad()));
+    jTextField1.setText((indiceActual + 1) + " / " + pedidos.size());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +64,9 @@ public class TomarPedido extends javax.swing.JFrame {
         txtCerveza = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JLabel();
         btnVolver1 = new javax.swing.JToggleButton();
+        btnPaginaAnterior = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        btnPaginaSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,18 +120,18 @@ public class TomarPedido extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCerveza, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addComponent(txtMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCerveza, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtTomarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,6 +167,30 @@ public class TomarPedido extends javax.swing.JFrame {
             }
         });
 
+        btnPaginaAnterior.setBackground(new java.awt.Color(238, 112, 28));
+        btnPaginaAnterior.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnPaginaAnterior.setForeground(new java.awt.Color(255, 255, 255));
+        btnPaginaAnterior.setText("←");
+        btnPaginaAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPaginaAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPaginaAnteriorActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("jTextField1");
+
+        btnPaginaSiguiente.setBackground(new java.awt.Color(238, 112, 28));
+        btnPaginaSiguiente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnPaginaSiguiente.setForeground(new java.awt.Color(255, 255, 255));
+        btnPaginaSiguiente.setText("→");
+        btnPaginaSiguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPaginaSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPaginaSiguienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -155,7 +201,14 @@ public class TomarPedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnPaginaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnPaginaSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,6 +220,11 @@ public class TomarPedido extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPaginaAnterior, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPaginaSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -207,9 +265,25 @@ public class TomarPedido extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVolver1ActionPerformed
 
-    
+    private void btnPaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaAnteriorActionPerformed
+        
+        if (indiceActual > 0) {
+            indiceActual--;
+            mostrarPedidoActual();
+        }
+    }//GEN-LAST:event_btnPaginaAnteriorActionPerformed
+
+    private void btnPaginaSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaSiguienteActionPerformed
+       if (indiceActual < pedidos.size() - 1) {
+            indiceActual++;
+            mostrarPedidoActual();
+    }//GEN-LAST:event_btnPaginaSiguienteActionPerformed
+
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPaginaAnterior;
+    private javax.swing.JButton btnPaginaSiguiente;
     private javax.swing.JToggleButton btnVolver1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -217,6 +291,7 @@ public class TomarPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel txtCantidad;
     private javax.swing.JLabel txtCerveza;
     private javax.swing.JLabel txtMesa;

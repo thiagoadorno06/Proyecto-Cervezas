@@ -4,6 +4,8 @@
  */
 package com.incade.poo.mozo.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pc
@@ -49,12 +51,22 @@ public class MetodoPago extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Efectivo");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(239, 112, 28));
         jButton2.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Transferencia");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 4.png"))); // NOI18N
 
@@ -146,6 +158,18 @@ public class MetodoPago extends javax.swing.JFrame {
         v7.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolver1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        JOptionPane.showMessageDialog(this, "Este es el cvu: 000030244343 ");
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        JOptionPane.showMessageDialog(this, "El moso vendra a su mesa ");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
 
