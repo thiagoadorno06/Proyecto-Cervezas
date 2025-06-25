@@ -72,6 +72,12 @@ public class PedidoController {
         List<Item> items = pedido.getItems();
         items.add(item);
         pedido.setItems(items);
+        pedido.setTotal(
+                pedido.getItems()
+                        .stream()
+                        .mapToDouble(i -> i.getCerveza().getPrecio() * i.getCantidad())
+                        .sum()
+        );
         
         try {
             pedidoJpaController.edit(pedido);
