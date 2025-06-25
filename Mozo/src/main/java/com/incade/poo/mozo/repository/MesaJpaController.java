@@ -127,14 +127,14 @@ public class MesaJpaController implements Serializable {
         }
     }
     
-    public Mesa findMesaByNumero(Long numero) {
+    public Mesa findMesaByNumero(Integer numero) {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("SELECT m FROM Mesa m WHERE m.numero = :numero");
             query.setParameter("numero", numero);
             return (Mesa) query.getSingleResult();
         } catch (NoResultException e) {
-            return null; // No cerveza found with that name
+            return null; // No mesa found with that name
         } finally {
             em.close();
         }

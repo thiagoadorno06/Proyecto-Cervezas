@@ -4,6 +4,7 @@ import com.incade.poo.mozo.dto.PedidoDto;
 import com.incade.poo.mozo.model.Estado;
 import com.incade.poo.mozo.model.Item;
 import com.incade.poo.mozo.model.Mesa;
+import com.incade.poo.mozo.model.Mozo;
 import com.incade.poo.mozo.model.Pedido;
 import com.incade.poo.mozo.repository.EstadoJpaController;
 import com.incade.poo.mozo.repository.MesaJpaController;
@@ -19,7 +20,7 @@ public class PedidoController {
     MozoController mozoController = new MozoController();
     ItemController itemController = new ItemController();
     
-    public PedidoDto create(Long mesaNumero, String cervezaNombre, Integer cantidad){
+    public PedidoDto create(Integer mesaNumero, String cervezaNombre, Integer cantidad){
         
         Mesa mesa = mesaJpaController.findMesaByNumero(mesaNumero);
         Estado estadoPendiente = estadoJpaController.findEstadoByName("PENDIENTE");
@@ -92,12 +93,13 @@ public class PedidoController {
     }
     
     public PedidoDto toDto(Pedido pedido){
+        
         return new PedidoDto(
                 pedido.getId(),
                 pedido.getMesa().getNumero(), 
-                mozoController.toDto(pedido.getMozo()), 
+                pedido.getMozo() != null ? mozoController.toDto(pedido.getMozo()) : null, 
                 pedido.getEstado().getNombre(), 
-                pedido.getTotal(), 
+                pedido.getTotal(),
                 pedido.getItems()
                         .stream()
                         .map(item -> itemController.toDto(item))

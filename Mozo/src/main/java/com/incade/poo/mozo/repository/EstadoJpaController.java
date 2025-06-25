@@ -143,7 +143,7 @@ public class EstadoJpaController implements Serializable {
     public Boolean destroyByName(String nombre) {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("DELETE FROM estado e WHERE e.nombre = :nombre");
+            Query query = em.createQuery("DELETE FROM Estado e WHERE e.nombre = :nombre");
             query.setParameter("nombre", nombre);
             return true;
         } catch (NoResultException e) {
@@ -156,7 +156,7 @@ public class EstadoJpaController implements Serializable {
     public Estado findEstadoByName(String nombre) {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("SELECT e FROM estado e WHERE e.nombre = :nombre");
+            Query query = em.createQuery("SELECT e FROM Estado e WHERE e.nombre = :nombre");
             query.setParameter("nombre", nombre);
             return (Estado) query.getSingleResult();
         } catch (NoResultException e) {

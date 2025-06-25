@@ -8,7 +8,7 @@ import java.util.List;
 public class MesaController {
     MesaJpaController mesaJpaController = new MesaJpaController();
     
-    public MesaDto create(Long numero){
+    public MesaDto create(Integer numero){
         Mesa mesa = new Mesa();
         mesa.setNumero(numero);
         mesaJpaController.create(mesa);
@@ -22,7 +22,7 @@ public class MesaController {
                 .toList();
     }
     
-    public MesaDto getByNumber(Long numero){
+    public MesaDto getByNumber(Integer numero){
         return toDto(mesaJpaController.findMesaByNumero(numero));
     }
     

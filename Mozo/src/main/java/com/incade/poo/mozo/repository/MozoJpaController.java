@@ -195,7 +195,7 @@ public class MozoJpaController implements Serializable {
     public Mozo findMozoByEmail(String email) {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("SELECT m FROM mozo m WHERE m.email = :email");
+            Query query = em.createQuery("SELECT m FROM Mozo m WHERE m.email = :email");
             query.setParameter("email", email);
             return (Mozo) query.getSingleResult();
         } catch (NoResultException e) {
