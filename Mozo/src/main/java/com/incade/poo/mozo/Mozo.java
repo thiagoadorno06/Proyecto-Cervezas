@@ -35,6 +35,9 @@ public class Mozo {
         mozoController.create("Laura", "laurasad@gmail.com", "1234");
         mozoController.create("Emilia", "mernesemilia@gmail.com", "1234");
         
+        //System.out.print(mozoController.login("matiasb@gmail.com", "1234").toString());
+        //mozoController.updatePassword("matiasb@gmail.com", "xd", "1234");
+        
         estadoController.create("PENDIENTE"); //Cuando se crea un pedido
         estadoController.create("PROCESANDO");//Cuando un mozo toma el pedido
         estadoController.create("ENTREGADO"); //Cuando el pedido es entregado en la mesa
@@ -44,15 +47,11 @@ public class Mozo {
         
         PedidoController pedidoController = new PedidoController();
         pedidoController.create(1, "Inferno Golden", 2);
-        */
         
         //PedidoController pedidoController = new PedidoController();
         //System.out.print(pedidoController.getAll().toString());
+        */
         
-        
-        MozoController mozoController = new MozoController();
-        mozoController.updatePassword("matiasb@gmail.com", "xd", "1234");
-                
         Ventana1 v1 = new Ventana1();
             v1.setVisible(true);
             v1.setLocationRelativeTo(null);

@@ -62,11 +62,14 @@ public class MozoController {
     }
     
     public MozoDto login(String email, String password)  {
-        Mozo mozo = mozoJpaController.findMozoByEmail(email);
         
+        Mozo mozo = mozoJpaController.findMozoByEmail(email);
         try {
+            if(mozo.getEmail() == null){
+                throw new PasswordException("Incorrect email or password");
+            }
             if(!password.contentEquals(mozo.getPassword())){
-                throw new PasswordException("Incorrect password");
+                throw new PasswordException("Incorrect email or password");
             }
         } catch (PasswordException ex) {
             ex.printStackTrace();
