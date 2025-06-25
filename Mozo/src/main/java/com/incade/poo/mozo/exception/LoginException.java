@@ -8,8 +8,8 @@ package com.incade.poo.mozo.exception;
  *
  * @author Usuario
  */
-public class PasswordException extends Exception{
-    public PasswordException(String msg) {
+public class LoginException extends Exception{
+    public LoginException(String msg) {
         super(msg);
     }
 }

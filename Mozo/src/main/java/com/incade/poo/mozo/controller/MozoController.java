@@ -1,7 +1,7 @@
 package com.incade.poo.mozo.controller;
 
 import com.incade.poo.mozo.dto.MozoDto;
-import com.incade.poo.mozo.exception.PasswordException;
+import com.incade.poo.mozo.exception.LoginException;
 import com.incade.poo.mozo.model.Mozo;
 import com.incade.poo.mozo.repository.MozoJpaController;
 import com.incade.poo.mozo.repository.exceptions.NonexistentEntityException;
@@ -66,12 +66,12 @@ public class MozoController {
         Mozo mozo = mozoJpaController.findMozoByEmail(email);
         try {
             if(mozo.getEmail() == null){
-                throw new PasswordException("Incorrect email or password");
+                throw new LoginException("Incorrect email or password");
             }
             if(!password.contentEquals(mozo.getPassword())){
-                throw new PasswordException("Incorrect email or password");
+                throw new LoginException("Incorrect email or password");
             }
-        } catch (PasswordException ex) {
+        } catch (LoginException ex) {
             ex.printStackTrace();
         }
         
