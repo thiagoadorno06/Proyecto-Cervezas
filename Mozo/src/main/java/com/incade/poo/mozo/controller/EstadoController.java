@@ -11,6 +11,7 @@ public class EstadoController {
     public EstadoDto create(String nombre){
         Estado estado = new Estado();
         estado.setNombre(nombre);
+        estadoJpaController.create(estado);
         return toDto(estado);
     }
     

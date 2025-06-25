@@ -219,7 +219,7 @@ public class Ventana5 extends javax.swing.JFrame {
     private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
 
         
-        pedidoController.create(1L,"Inferno Golden", 1);
+        pedidoController.create(1,"Inferno Golden", 1);
             
         Ventana6 v6 =new Ventana6();
         v6.setVisible(true);

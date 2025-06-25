@@ -143,7 +143,7 @@ public class CervezaJpaController implements Serializable {
     public Cerveza findCervezaByName(String nombre) {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("SELECT c FROM cerveza c WHERE c.nombre = :nombre");
+            Query query = em.createQuery("SELECT c FROM Cerveza c WHERE c.nombre = :nombre");
             query.setParameter("nombre", nombre);
             return (Cerveza) query.getSingleResult();
         } catch (NoResultException e) {
@@ -156,7 +156,7 @@ public class CervezaJpaController implements Serializable {
     public Boolean destroyByName(String nombre) {
     EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("DELETE FROM cerveza c WHERE c.nombre = :nombre");
+            Query query = em.createQuery("DELETE FROM Cerveza c WHERE c.nombre = :nombre");
             query.setParameter("nombre", nombre);
             return true;
         } catch (NoResultException e) {
