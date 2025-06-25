@@ -17,14 +17,16 @@ public class Ventana4 extends javax.swing.JFrame {
     private Ventana2 v2;
     private List<CervezaDto> cervezas;
     private CervezaController cervezaController = new CervezaController();
+    private long numeroMesa;
     /**
      * Creates new form Ventana4
      */
-    public Ventana4() {
+    public Ventana4(Long numeroMesa) {
         initComponents();
         setLocationRelativeTo(null);
         cervezas = cervezaController.getAll();
         cargarCervezasDesdeBD();
+        this.numeroMesa = numeroMesa;
     }
     private void cargarCervezasDesdeBD() {
     if (cervezas.size() >= 1) {
@@ -308,7 +310,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnInfernoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfernoActionPerformed
        
      CervezaDto seleccionada = cervezas.get(0); 
-      Ventana5 v5 = new Ventana5(seleccionada); 
+      Ventana5 v5 = new Ventana5(seleccionada,numeroMesa); 
   
          v5.setv4(this); 
          v5.setVisible(true);
@@ -319,7 +321,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnOscuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOscuraActionPerformed
         
        CervezaDto seleccionada = cervezas.get(1);
-       Ventana5 v5 = new Ventana5(seleccionada); 
+       Ventana5 v5 = new Ventana5(seleccionada, numeroMesa); 
         v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
@@ -329,7 +331,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnFuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuegoActionPerformed
          
         CervezaDto seleccionada = cervezas.get(2);
-        Ventana5 v5 = new Ventana5(seleccionada); 
+        Ventana5 v5 = new Ventana5(seleccionada, numeroMesa); 
         
         v5.setv4(this); 
          v5.setVisible(true);
@@ -340,7 +342,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnLlamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlamaActionPerformed
         
       CervezaDto seleccionada = cervezas.get(3);
-       Ventana5 v5 = new Ventana5(seleccionada); 
+       Ventana5 v5 = new Ventana5(seleccionada, numeroMesa); 
          v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
