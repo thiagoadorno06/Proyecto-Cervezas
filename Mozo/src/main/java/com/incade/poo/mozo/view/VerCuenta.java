@@ -4,6 +4,7 @@ package com.incade.poo.mozo.view;
 import com.incade.poo.mozo.controller.PedidoController;
 import com.incade.poo.mozo.dto.PedidoDto;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +27,7 @@ public class VerCuenta extends javax.swing.JFrame {
         if (pedidos.size() > 0) {
             cargarDatosPedido(pedidos.get(pedidos.size() - 1));
         } else {
-            System.out.println("No hay pedidos registrados.");
+           JOptionPane.showMessageDialog(this, "No hay pedidos Cargados ");
         }
 }
     private void cargarDatosPedido(PedidoDto pedido) {
