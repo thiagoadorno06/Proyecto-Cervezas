@@ -8,6 +8,7 @@ import com.incade.poo.mozo.model.Mozo;
 import com.incade.poo.mozo.model.Pedido;
 import com.incade.poo.mozo.repository.EstadoJpaController;
 import com.incade.poo.mozo.repository.MesaJpaController;
+import com.incade.poo.mozo.repository.MozoJpaController;
 import com.incade.poo.mozo.repository.PedidoJpaController;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class PedidoController {
     PedidoJpaController pedidoJpaController = new PedidoJpaController();
     MesaJpaController mesaJpaController = new MesaJpaController();
     EstadoJpaController estadoJpaController = new EstadoJpaController();
+    MozoJpaController mozoJpaController = new MozoJpaController();
     
     MozoController mozoController = new MozoController();
     ItemController itemController = new ItemController();
@@ -89,6 +91,23 @@ public class PedidoController {
             pedidoJpaController.edit(pedido);
         } catch (Exception ex) {
             System.getLogger(PedidoController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }
+    
+    public void takePedido(String email, Long pedidoId){
+        
+        Pedido pedido = pedidoJpaController.findPedido(pedidoId);
+        
+        Mozo mozo = mozoJpaController.findMozoByEmail(email);
+        pedido.setMozo(mozo);
+        if(mozo.getEmail() == null || pedido.getId() == null){
+            throw new IllegalArgumentException();
+        }
+                
+        try {
+            pedidoJpaController.edit(pedido);
+        } catch (Exception ex) {
+            ex.printStackTrace();;
         }
     }
     
