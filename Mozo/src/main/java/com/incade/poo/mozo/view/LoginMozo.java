@@ -4,21 +4,28 @@
  */
 package com.incade.poo.mozo.view;
 
+import com.incade.poo.mozo.controller.MozoController;
+import com.incade.poo.mozo.controller.PedidoController;
+import com.incade.poo.mozo.dto.MozoDto;
+import com.incade.poo.mozo.dto.PedidoDto;
+import com.incade.poo.mozo.exception.LoginException;
+import javax.swing.JOptionPane;
+
 
 
 /**
  *
  * @author pc
  */
-public class Ventana9 extends javax.swing.JFrame {
-    private Ventana1 v1;
+public class LoginMozo extends javax.swing.JFrame {
+    private MenuInicio v1;
 
     /**
      * Creates new form Ventana9
      */
    
     
-    public Ventana9() {
+    public LoginMozo() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -35,11 +42,11 @@ public class Ventana9 extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnAceptar = new javax.swing.JToggleButton();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtContraseña = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         btnVolver1 = new javax.swing.JToggleButton();
 
@@ -51,9 +58,9 @@ public class Ventana9 extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
 
@@ -61,22 +68,20 @@ public class Ventana9 extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña");
 
-        jToggleButton1.setBackground(new java.awt.Color(239, 112, 28));
-        jToggleButton1.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("ACEPTAR");
-        jToggleButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAceptar.setBackground(new java.awt.Color(239, 112, 28));
+        btnAceptar.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("ACEPTAR");
+        btnAceptar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("LOGIN");
-
-        jPasswordField1.setText("jPasswordField1");
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 4.png"))); // NOI18N
 
@@ -102,16 +107,16 @@ public class Ventana9 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(90, 90, 90))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -125,13 +130,13 @@ public class Ventana9 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(jLabel3)
                 .addGap(28, 28, 28)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82))
             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -153,24 +158,56 @@ public class Ventana9 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setv1(Ventana1 v1)  {
+    public void setv1(MenuInicio v1)  {
         
         this.v1 = v1;
     }                                           
   
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
       
-        Ventana10 v10 =new Ventana10();
-         v10.setv9(this); 
-         v10.setVisible(true);
+         String email = txtUsuario.getText();
+         String password = new String(txtContraseña.getPassword());
+
+
+        MozoController controller = new MozoController(); 
+        
+        MozoDto mozo = null;
+
+     try {
+    mozo = controller.login(email, password);
+} catch (Exception ex) {
+    ex.printStackTrace(); 
+}
+
+if (mozo != null) {
+    // Buscar un pedido pendiente
+    PedidoController pedidoController = new PedidoController();
+    PedidoDto pedido = pedidoController.getAll().stream()
+        .filter(p -> p.mozo() == null && p.estado().equalsIgnoreCase("PENDIENTE"))
+        .findFirst()
+        .orElse(null);
+
+    if (pedido != null) {
+        // asignamos el mozo al pedido
+        pedidoController.takePedido(email, pedido.id());
+
+        TomarPedido v10 = new TomarPedido(pedido);
+        v10.setv9(this);
+        v10.setVisible(true);
         this.setVisible(false);
+    } else {
+        JOptionPane.showMessageDialog(this, "No hay pedidos pendientes.", "Info", JOptionPane.INFORMATION_MESSAGE);
+    }
+} else {
+    JOptionPane.showMessageDialog(this, "Email o contraseña incorrectos", "Error de Login", JOptionPane.ERROR_MESSAGE);
+}
        
       
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolver1ActionPerformed
 
@@ -181,15 +218,15 @@ public class Ventana9 extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnAceptar;
     private javax.swing.JToggleButton btnVolver1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,17 +8,17 @@ import java.util.List;
  *
  * @author pc
  */
-public class Ventana4 extends javax.swing.JFrame {
+public class ElejirCerveza extends javax.swing.JFrame {
 
-    private Ventana3 v3;
-    private Ventana2 v2;
+    private ElegirMesa v3;
+    private Cliente v2;
     private List<CervezaDto> cervezas;
     private CervezaController cervezaController = new CervezaController();
-    private Integer numeroMesa;
+    private Integer numeroMesa; 
     /**
      * Creates new form Ventana4
      */
-    public Ventana4(Integer numeroMesa) {
+    public ElejirCerveza(Integer numeroMesa) {
         initComponents();
         setLocationRelativeTo(null);
         cervezas = cervezaController.getAll();
@@ -31,15 +31,15 @@ public class Ventana4 extends javax.swing.JFrame {
         jLabel13.setText("$" + cervezas.get(0).precio());
     }
     if (cervezas.size() >= 2) {
-        btnFuego.setText(cervezas.get(1).nombre());
+        btnOscura.setText(cervezas.get(1).nombre());
         jLabel14.setText("$" + cervezas.get(1).precio());
     }
     if (cervezas.size() >= 3) {
-        btnLlama.setText(cervezas.get(2).nombre());
+        btnFuego.setText(cervezas.get(2).nombre());
         jLabel12.setText("$" + cervezas.get(2).precio());
     }
     if (cervezas.size() >= 4) {
-        btnOscura.setText(cervezas.get(3).nombre());
+        btnLlama.setText(cervezas.get(3).nombre());
         jLabel11.setText("$" + cervezas.get(3).precio());
     }
 }
@@ -172,6 +172,7 @@ public class Ventana4 extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo Cerveceria 4.png"))); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("$1500");
 
         btnFuego.setBackground(new java.awt.Color(255, 255, 255));
@@ -202,12 +203,15 @@ public class Ventana4 extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("$1500");
 
         jLabel13.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("$1500");
 
         jLabel14.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("$1500");
 
         btnVolver.setBackground(new java.awt.Color(239, 112, 28));
@@ -242,17 +246,19 @@ public class Ventana4 extends javax.swing.JFrame {
                             .addComponent(btnLlama, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnOscura, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnInferno, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -262,22 +268,22 @@ public class Ventana4 extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addGap(30, 30, 30)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnInferno, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFuego, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLlama, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOscura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnInferno, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOscura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFuego, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLlama, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -294,12 +300,12 @@ public class Ventana4 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setv3(Ventana3 v3)  {
+    public void setv3(ElegirMesa v3)  {
         
         this.v3 = v3;
        
     }
-    public void setv2(Ventana2 v2)  {
+    public void setv2(Cliente v2)  {
         
         this.v2 = v2;
     }
@@ -307,7 +313,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnInfernoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfernoActionPerformed
        
      CervezaDto seleccionada = cervezas.get(0); 
-      Ventana5 v5 = new Ventana5(seleccionada,numeroMesa); 
+      ElejirCantidad v5 = new ElejirCantidad(seleccionada,numeroMesa); 
   
          v5.setv4(this); 
          v5.setVisible(true);
@@ -318,7 +324,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnOscuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOscuraActionPerformed
         
        CervezaDto seleccionada = cervezas.get(1);
-       Ventana5 v5 = new Ventana5(seleccionada, numeroMesa); 
+       ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
         v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);
@@ -328,7 +334,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnFuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuegoActionPerformed
          
         CervezaDto seleccionada = cervezas.get(2);
-        Ventana5 v5 = new Ventana5(seleccionada, numeroMesa); 
+        ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
         
         v5.setv4(this); 
          v5.setVisible(true);
@@ -339,7 +345,7 @@ public class Ventana4 extends javax.swing.JFrame {
     private void btnLlamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlamaActionPerformed
         
       CervezaDto seleccionada = cervezas.get(3);
-       Ventana5 v5 = new Ventana5(seleccionada, numeroMesa); 
+       ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
          v5.setv4(this); 
          v5.setVisible(true);
         this.setVisible(false);

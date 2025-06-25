@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.incade.poo.mozo.view;
 
 import com.incade.poo.mozo.controller.PedidoController;
@@ -12,17 +9,17 @@ import com.incade.poo.mozo.dto.PedidoDto;
  *
  * @author pc
  */
-public class Ventana5 extends javax.swing.JFrame {
+public class ElejirCantidad extends javax.swing.JFrame {
 
-   private Ventana4 v4;
-   private Ventana2 v2;
+   private ElejirCerveza v4;
+   private Cliente v2;
    private  CervezaDto cerveza;
    private PedidoController pedidoController = new PedidoController();
    private  Integer numeroMesa;
     /**
      * Creates new form Ventana5
      */
-    public Ventana5(CervezaDto cerveza, Integer numeroMesa){
+    public ElejirCantidad(CervezaDto cerveza, Integer numeroMesa){
         initComponents();
          setLocationRelativeTo(null);
          this.cerveza = cerveza;
@@ -212,11 +209,11 @@ public class Ventana5 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setv4(Ventana4 v4)  {
+    public void setv4(ElejirCerveza v4)  {
         
         this.v4 = v4;
     }
-    public void setv2(Ventana2 v2)  {
+    public void setv2(Cliente v2)  {
         
         this.v2 = v2;
     }
@@ -228,8 +225,9 @@ public class Ventana5 extends javax.swing.JFrame {
        
         PedidoController pedidoController = new PedidoController();
           pedidoController.create(numeroMesa, cerveza.nombre(), cantidad);
+         
             
-        Ventana6 v6 =new Ventana6();
+        VolverMenuCliente v6 =new VolverMenuCliente();
         v6.setVisible(true);
         this.setVisible(false);
         v6.setv2(v2);

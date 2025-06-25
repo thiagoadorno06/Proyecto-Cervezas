@@ -8,14 +8,14 @@ package com.incade.poo.mozo.view;
  *
  * @author pc
  */
-public class Ventana8 extends javax.swing.JFrame {
+public class MetodoPago extends javax.swing.JFrame {
 
-     private Ventana7 v7;
+     private VerCuenta v7;
     
     /**
      * Creates new form Ventana8
      */
-    public Ventana8() {
+    public MetodoPago() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -137,7 +137,7 @@ public class Ventana8 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setv7(Ventana7 v7)  {
+    public void setv7(VerCuenta v7)  {
         
         this.v7 = v7;
     }

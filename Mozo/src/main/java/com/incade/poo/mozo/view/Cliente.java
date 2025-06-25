@@ -14,14 +14,14 @@ package com.incade.poo.mozo.view;
  *
  * @author pc
  */
-public class Ventana2 extends javax.swing.JFrame {
+public class Cliente extends javax.swing.JFrame {
 
-   private Ventana1 v1;
+   private MenuInicio v1;
    
     /**
      * Creates new form Ventana3
      */
-    public Ventana2() {
+    public Cliente() {
         initComponents();
          setLocationRelativeTo(null);
     }
@@ -39,7 +39,7 @@ public class Ventana2 extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-  public void setV1(Ventana1 v1){
+  public void setV1(MenuInicio v1){
       this.v1 = v1;
   }
     
@@ -395,7 +395,7 @@ public class Ventana2 extends javax.swing.JFrame {
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton12ActionPerformed
        
        
-        Ventana7 v7 = new Ventana7();
+        VerCuenta v7 = new VerCuenta();
         v7.setv2(this);
         v7.setVisible(true);
         this.setVisible(false); 
@@ -410,7 +410,7 @@ public class Ventana2 extends javax.swing.JFrame {
       //cerveza.precio();
       
         
-        Ventana3 v3 = new Ventana3();
+        ElegirMesa v3 = new ElegirMesa();
         v3.setv2(this);
         v3.setVisible(true);
         this.setVisible(false); 

@@ -5,7 +5,7 @@ import com.incade.poo.mozo.controller.EstadoController;
 import com.incade.poo.mozo.controller.MesaController;
 import com.incade.poo.mozo.controller.MozoController;
 import com.incade.poo.mozo.controller.PedidoController;
-import com.incade.poo.mozo.view.Ventana1;
+import com.incade.poo.mozo.view.MenuInicio;
 
 public class Mozo {
 
@@ -52,7 +52,7 @@ public class Mozo {
         //System.out.print(pedidoController.getAll().toString());
         */
         
-        Ventana1 v1 = new Ventana1();
+        MenuInicio v1 = new MenuInicio();
             v1.setVisible(true);
             v1.setLocationRelativeTo(null);
     }

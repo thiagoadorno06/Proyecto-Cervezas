@@ -8,15 +8,15 @@ package com.incade.poo.mozo.view;
  *
  * @author pc
  */
-public class Ventana6 extends javax.swing.JFrame {
+public class VolverMenuCliente extends javax.swing.JFrame {
 
-    private Ventana2 v2;
+    private Cliente v2;
         
     
     /**
      * Creates new form Ventana6
      */
-    public Ventana6() {
+    public VolverMenuCliente() {
         
         initComponents();
         setLocationRelativeTo(null);
@@ -131,7 +131,7 @@ public class Ventana6 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setv2(Ventana2 v2)  {
+    public void setv2(Cliente v2)  {
         
         this.v2 = v2;
     }

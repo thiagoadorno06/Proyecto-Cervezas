@@ -8,12 +8,12 @@ package com.incade.poo.mozo.view;
  *
  * @author pc
  */
-public class Ventana1 extends javax.swing.JFrame {
+public class MenuInicio extends javax.swing.JFrame {
 
     /**
      * Creates new form Pantalla
      */
-    public Ventana1() {
+    public MenuInicio() {
         initComponents();
     }
 
@@ -102,7 +102,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void btnMozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMozoActionPerformed
         
-        Ventana9 v9 = new Ventana9();
+        LoginMozo v9 = new LoginMozo();
         v9.setv1(this);
         v9.setVisible(true);
         this.setVisible(false); // Oculta Ventana1
@@ -112,7 +112,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
        
-        Ventana2 v2 = new Ventana2();
+        Cliente v2 = new Cliente();
         v2.setV1(this);
         v2.setVisible(true);
         this.setVisible(false); // Oculta Ventana1
