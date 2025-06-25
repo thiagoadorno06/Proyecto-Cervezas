@@ -46,8 +46,8 @@ public class Mozo {
         pedidoController.create(1, "Inferno Golden", 2);
         */
         
-        PedidoController pedidoController = new PedidoController();
-        System.out.print(pedidoController.getAll().toString());
+        //PedidoController pedidoController = new PedidoController();
+        //System.out.print(pedidoController.getAll().toString());
                 
         Ventana1 v1 = new Ventana1();
             v1.setVisible(true);

@@ -182,12 +182,11 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
       
               
-        String mesa = (String) numMesa.getSelectedItem();
-        Integer numeroMesa = Integer.valueOf(mesa.trim());
-        MesaController mesaController = new MesaController();
-        MesaDto nuevaMesa = mesaController.create(numeroMesa);
+       String mesa = (String) numMesa.getSelectedItem();
+         Integer numeroMesa = Integer.valueOf(mesa.trim());
        
-        Ventana4 v4 = new Ventana4();
+       
+        Ventana4 v4 = new Ventana4(numeroMesa);
         CervezaController cervezaController = new CervezaController();
         
          

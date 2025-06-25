@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.incade.poo.mozo.view;
 
 import com.incade.poo.mozo.controller.CervezaController;
@@ -17,11 +14,11 @@ public class Ventana4 extends javax.swing.JFrame {
     private Ventana2 v2;
     private List<CervezaDto> cervezas;
     private CervezaController cervezaController = new CervezaController();
-    private long numeroMesa;
+    private Integer numeroMesa;
     /**
      * Creates new form Ventana4
      */
-    public Ventana4(Long numeroMesa) {
+    public Ventana4(Integer numeroMesa) {
         initComponents();
         setLocationRelativeTo(null);
         cervezas = cervezaController.getAll();
@@ -347,6 +344,7 @@ public class Ventana4 extends javax.swing.JFrame {
          v5.setVisible(true);
         this.setVisible(false);
         v5.setv2(v2);
+        
         
     }//GEN-LAST:event_btnLlamaActionPerformed
 

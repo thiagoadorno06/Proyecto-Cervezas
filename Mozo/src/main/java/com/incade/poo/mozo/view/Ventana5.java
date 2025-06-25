@@ -16,19 +16,24 @@ public class Ventana5 extends javax.swing.JFrame {
 
    private Ventana4 v4;
    private Ventana2 v2;
-   private CervezaDto cerveza;
+   private  CervezaDto cerveza;
    private PedidoController pedidoController = new PedidoController();
+   private  Integer numeroMesa;
     /**
      * Creates new form Ventana5
      */
-    public Ventana5(CervezaDto cerveza){
+    public Ventana5(CervezaDto cerveza, Integer numeroMesa){
         initComponents();
          setLocationRelativeTo(null);
          this.cerveza = cerveza;
-         
+         this.numeroMesa = numeroMesa;
         txtDescripcion.setText(cerveza.descripcion());
         
     }
+   
+        
+  
+
 
          
     
@@ -218,8 +223,11 @@ public class Ventana5 extends javax.swing.JFrame {
     
     private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
 
-        
-        pedidoController.create(1,"Inferno Golden", 1);
+        String textoCantidad = txtCantidad.getText(); 
+        int cantidad = Integer.parseInt(textoCantidad);
+       
+        PedidoController pedidoController = new PedidoController();
+          pedidoController.create(numeroMesa, cerveza.nombre(), cantidad);
             
         Ventana6 v6 =new Ventana6();
         v6.setVisible(true);
@@ -248,6 +256,7 @@ public class Ventana5 extends javax.swing.JFrame {
             Cantidad = String.valueOf(cant);
 
             txtCantidad.setText(Cantidad);
+            
         }
 
     }//GEN-LAST:event_RestarCantidadActionPerformed
