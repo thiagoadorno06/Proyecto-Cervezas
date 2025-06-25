@@ -31,6 +31,8 @@ public void setPedido(PedidoDto pedido) {
         txtCerveza.setText( pedido.items().get(0).cerveza().nombre());
       
         comboEstado.setSelectedItem(pedido.estado());
+        System.out.println(pedido.estado());
+        System.out.println(comboEstado.getSelectedItem());
         
     }
     /**
@@ -70,6 +72,11 @@ public void setPedido(PedidoDto pedido) {
         comboEstado.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         comboEstado.setForeground(new java.awt.Color(0, 0, 0));
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CANCELADO", "ENTREGADO", "PAGADO", "PENDIENTE", "PROCESANDO", "SIN STOCK", " " }));
+        comboEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEstadoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Roboto Cn", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -252,6 +259,10 @@ public void setPedido(PedidoDto pedido) {
      
      
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboEstadoActionPerformed
 
    
 
