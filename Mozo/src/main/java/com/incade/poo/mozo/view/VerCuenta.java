@@ -19,19 +19,20 @@ public class VerCuenta extends javax.swing.JFrame {
     public VerCuenta() {
         initComponents();
         setLocationRelativeTo(null);
-          List<PedidoDto> pedidos = pedidoController.getAll();
-
-    if (!pedidos.isEmpty()) {
-        PedidoDto ultimoPedido = pedidos.get(pedidos.size() - 1); 
-        cargarDatosPedido(ultimoPedido);
-    } else {
-        System.out.println("No hay pedidos registrados.");
-    }
+        mostrarUltimoPedido();
 }
-private void cargarDatosPedido(PedidoDto pedido) {
-    if (pedido.items().isEmpty()) return;
+     private void mostrarUltimoPedido() {
+        List<PedidoDto> pedidos = pedidoController.getAll();
+        if (pedidos.size() > 0) {
+            cargarDatosPedido(pedidos.get(pedidos.size() - 1));
+        } else {
+            System.out.println("No hay pedidos registrados.");
+        }
+}
+    private void cargarDatosPedido(PedidoDto pedido) {
+     if (pedido.items().size() == 0) return;
 
-    var item = pedido.items().get(0);
+        var item = pedido.items().get(0);
 
     txtnombre.setText(item.cerveza().nombre());
     txtCantidad.setText(String.valueOf(item.cantidad()));
@@ -264,11 +265,8 @@ private void cargarDatosPedido(PedidoDto pedido) {
 
     private void btnActulizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActulizarActionPerformed
        
-         List<PedidoDto> pedidos = pedidoController.getAll();
-    if (!pedidos.isEmpty()) {
-        PedidoDto ultimoPedido = pedidos.get(pedidos.size() - 1); 
-        cargarDatosPedido(ultimoPedido);  
-    }
+         mostrarUltimoPedido(); 
+    
 
         
     }//GEN-LAST:event_btnActulizarActionPerformed

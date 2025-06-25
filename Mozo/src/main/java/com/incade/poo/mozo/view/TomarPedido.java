@@ -2,6 +2,7 @@
 package com.incade.poo.mozo.view;
 
 import com.incade.poo.mozo.controller.PedidoController;
+import com.incade.poo.mozo.dto.MozoDto;
 import com.incade.poo.mozo.dto.PedidoDto;
 import java.util.List;
 
@@ -14,16 +15,18 @@ public class TomarPedido extends javax.swing.JFrame {
     private PedidoDto pedido;
     private List<PedidoDto> pedidos;
     private int indiceActual = 0;
+    private MozoDto mozo;
   
     /**
      * Creates new form Ventana10
      */
-    public TomarPedido(PedidoDto pedido) {
+    public TomarPedido(MozoDto mozo) {
         initComponents();
         setLocationRelativeTo(null);
+        this.mozo = mozo;
        PedidoController pedidoController = new PedidoController();
        this.pedidos = pedidoController.getAll();
-       if (!pedidos.isEmpty()) {
+       if (pedidos.size() > 0) {
         indiceActual = 0;
         mostrarPedidoActual();
     } else {
@@ -35,7 +38,7 @@ public class TomarPedido extends javax.swing.JFrame {
    }     
        
     private void mostrarPedidoActual() {
-    if (pedidos == null || pedidos.isEmpty()) return;
+    if (pedidos == null) return;
 
     pedido = pedidos.get(indiceActual);
     txtMesa.setText(pedido.mesa().toString());
@@ -250,6 +253,7 @@ public class TomarPedido extends javax.swing.JFrame {
         
         PedidoController pedidoController = new PedidoController();
         pedidoController.updateEstado(pedido.id(), "PROCESANDO");
+        pedidoController.takePedido(mozo.email(), pedido.id());
 
         EstadoPedido v11 =new EstadoPedido();
         v11.setv10(this); 

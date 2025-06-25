@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.incade.poo.mozo.view;
 
 import com.incade.poo.mozo.controller.MozoController;
@@ -9,6 +6,7 @@ import com.incade.poo.mozo.controller.PedidoController;
 import com.incade.poo.mozo.dto.MozoDto;
 import com.incade.poo.mozo.dto.PedidoDto;
 import com.incade.poo.mozo.exception.LoginException;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
@@ -172,40 +170,28 @@ public class LoginMozo extends javax.swing.JFrame {
          String email = txtUsuario.getText();
          String password = new String(txtContraseña.getPassword());
 
-
         MozoController controller = new MozoController(); 
-        
         MozoDto mozo = null;
-
-     try {
+ try {
     mozo = controller.login(email, password);
-} catch (Exception ex) {
+}catch (Exception ex) {
     ex.printStackTrace(); 
 }
 
-if (mozo != null) {
-    // Buscar un pedido pendiente
-    PedidoController pedidoController = new PedidoController();
-    PedidoDto pedido = pedidoController.getAll().stream()
-        .filter(p -> p.mozo() == null && p.estado().equalsIgnoreCase("PENDIENTE"))
-        .findFirst()
-        .orElse(null);
+   
+        
+        if (mozo != null) {
 
-    if (pedido != null) {
-        // asignamos el mozo al pedido
-        pedidoController.takePedido(email, pedido.id());
-
-        TomarPedido v10 = new TomarPedido(pedido);
+        TomarPedido v10 = new TomarPedido(mozo);
         v10.setv9(this);
         v10.setVisible(true);
         this.setVisible(false);
-    } else {
-        JOptionPane.showMessageDialog(this, "No hay pedidos pendientes.", "Info", JOptionPane.INFORMATION_MESSAGE);
-    }
+      
+  
 } else {
     JOptionPane.showMessageDialog(this, "Email o contraseña incorrectos", "Error de Login", JOptionPane.ERROR_MESSAGE);
 }
-       
+         
       
     }//GEN-LAST:event_btnAceptarActionPerformed
 

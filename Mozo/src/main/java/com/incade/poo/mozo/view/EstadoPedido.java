@@ -205,7 +205,7 @@ public void setPedido(PedidoDto pedido) {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         String nuevoEstado = (String) comboEstado.getSelectedItem();
-        if (pedido != null && nuevoEstado != null && !nuevoEstado.isBlank()) {
+        if (pedido != null && nuevoEstado != null ) {
             PedidoController controller = new PedidoController();
             controller.updateEstado(pedido.id(), nuevoEstado);
             JOptionPane.showMessageDialog(this, "Estado actualizado a: " + nuevoEstado);

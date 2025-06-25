@@ -66,7 +66,7 @@ public class ElejirCerveza extends javax.swing.JFrame {
 }
     private void limpiarBotones(){
        
-    btnInferno.setVisible(false);
+        btnInferno.setVisible(false);
         jLabel13.setVisible(false);
         btnOscura.setVisible(false);
         jLabel14.setVisible(false);
@@ -378,10 +378,10 @@ public class ElejirCerveza extends javax.swing.JFrame {
     
     private void btnInfernoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfernoActionPerformed
        
-     int index = paginaActual * CervezasporPagina + 0;
-        if (index < cervezas.size()) {
+     int indice = paginaActual * CervezasporPagina ;
+        if (indice < cervezas.size()) {
         
-        CervezaDto seleccionada = cervezas.get(index); 
+        CervezaDto seleccionada = cervezas.get(indice); 
       ElejirCantidad v5 = new ElejirCantidad(seleccionada,numeroMesa); 
   
          v5.setv4(this); 
@@ -393,11 +393,11 @@ public class ElejirCerveza extends javax.swing.JFrame {
 
     private void btnOscuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOscuraActionPerformed
         
-        int index = paginaActual * CervezasporPagina + 1;
-        if (index < cervezas.size()) {
+        int indice = paginaActual * CervezasporPagina + 1;
+        if (indice < cervezas.size()) {
         
         
-       CervezaDto seleccionada = cervezas.get(index);
+       CervezaDto seleccionada = cervezas.get(indice);
        ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
         v5.setv4(this); 
          v5.setVisible(true);
@@ -408,10 +408,10 @@ public class ElejirCerveza extends javax.swing.JFrame {
 
     private void btnFuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuegoActionPerformed
          
-        int index = paginaActual * CervezasporPagina + 2;
-        if (index < cervezas.size()) {
+        int indice = paginaActual * CervezasporPagina + 2;
+        if (indice < cervezas.size()) {
         
-        CervezaDto seleccionada = cervezas.get(index);
+        CervezaDto seleccionada = cervezas.get(indice);
         ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
         
         v5.setv4(this); 
@@ -423,10 +423,10 @@ public class ElejirCerveza extends javax.swing.JFrame {
 
     private void btnLlamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlamaActionPerformed
         
-        int index = paginaActual * CervezasporPagina + 3;
-        if (index < cervezas.size()) {
+        int indice = paginaActual * CervezasporPagina + 3;
+        if (indice < cervezas.size()) {
         
-      CervezaDto seleccionada = cervezas.get(index);
+      CervezaDto seleccionada = cervezas.get(indice);
        ElejirCantidad v5 = new ElejirCantidad(seleccionada, numeroMesa); 
          v5.setv4(this); 
          v5.setVisible(true);
