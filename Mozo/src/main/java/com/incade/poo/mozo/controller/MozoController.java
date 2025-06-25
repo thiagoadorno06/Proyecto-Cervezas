@@ -1,6 +1,7 @@
 package com.incade.poo.mozo.controller;
 
 import com.incade.poo.mozo.dto.MozoDto;
+import com.incade.poo.mozo.exception.PasswordException;
 import com.incade.poo.mozo.model.Mozo;
 import com.incade.poo.mozo.repository.MozoJpaController;
 import com.incade.poo.mozo.repository.exceptions.NonexistentEntityException;
@@ -49,14 +50,29 @@ public class MozoController {
                 .toList();
     }
     
-    public void updatePassword(String email, String password){
+    public void updatePassword(String email, String currentPassword, String newPassword){
         Mozo mozo = mozoJpaController.findMozoByEmail(email);
-        mozo.setPassword(password);
+        login(email, currentPassword);
+        mozo.setPassword(newPassword);
         try {
             mozoJpaController.edit(mozo);
         } catch (Exception ex) {
-            System.getLogger(MozoController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            ex.printStackTrace();
         }
+    }
+    
+    public MozoDto login(String email, String password)  {
+        Mozo mozo = mozoJpaController.findMozoByEmail(email);
+        
+        try {
+            if(!password.contentEquals(mozo.getPassword())){
+                throw new PasswordException("Incorrect password");
+            }
+        } catch (PasswordException ex) {
+            ex.printStackTrace();
+        }
+        
+        return toDto(mozo);
     }
     
     public MozoDto toDto(Mozo mozo){

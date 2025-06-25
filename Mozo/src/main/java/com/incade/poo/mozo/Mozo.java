@@ -48,6 +48,10 @@ public class Mozo {
         
         //PedidoController pedidoController = new PedidoController();
         //System.out.print(pedidoController.getAll().toString());
+        
+        
+        MozoController mozoController = new MozoController();
+        mozoController.updatePassword("matiasb@gmail.com", "xd", "1234");
                 
         Ventana1 v1 = new Ventana1();
             v1.setVisible(true);
